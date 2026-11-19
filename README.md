@@ -1,16 +1,18 @@
-# Cannon Targets — Unity 6
+# Pushka — Cannon Targets (Unity 6)
 
-Open this folder in Unity 6. The first editor open generates `Assets/Scenes/Main.unity` automatically. If needed, use **Cannon Targets → Rebuild demo scene**.
+algoritmicheskie osnovi razrabotki
 
-## Controls
-- **W/A/S/D** move the cannon on the ground.
-- **Q/E** rotate it.
-- **Up/Down arrows** raise and lower the barrel.
-- **Space** fires.
+Учебный проект с пушкой, баллистическим превью и летающими мишенями.
 
-The camera is mounted behind the cannon and follows it. Five red targets move only along the X axis. A target turns white while the predicted trajectory crosses it. Hitting a target destroys both spheres, increments the counter, and spawns one replacement.
+## Управление
+- **W/A/S/D** — движение пушки по земле.
+- **Q/E** — поворот пушки.
+- **Стрелки ↑/↓** — поднять или опустить ствол.
+- **Space** — выстрел.
 
-The upper-left HUD shows the mass and radius reserved for the next shot, plus shot and hit counts. On a hit, both the cannonball and red target disappear, and the hit count increases once. The yellow trajectory is recomputed from the muzzle each frame. Prediction and projectile use the same midpoint integration and quadratic drag model, including wind. Each shot consumes the displayed mass and radius, then rolls the next pair. Targets spawn with randomized mass, radius and horizontal velocity; at most four remain active.
+Камера закреплена за пушкой. По бокам Ground при запуске создаются пурпурные стены. Внутри них летают ровно пять мишеней: они перемещаются только влево и вправо и меняют направление при столкновении со стеной. Мишень становится белой, если её пересекает расчётная траектория. При попадании ядро и мишень исчезают, счётчик сбитых шаров увеличивается, и появляется новая мишень.
 
-## Build
-Open `Assets/Scenes/Main.unity` and use File → Build Profiles. The scene is also registered in Build Settings by the setup script.
+Масса и радиус следующего ядра показываются в HUD. Превью и полёт используют одинаковые параметры ядра, модель квадратичного сопротивления и ветер.
+
+## Запуск и сборка
+Откройте проект в Unity 6 (`6000.0.41f1`) и запустите сцену `Assets/Scenes/Main.unity` кнопкой **Play**. Сцена уже добавлена в Build Settings. Для сборки используйте **File → Build Profiles**.
